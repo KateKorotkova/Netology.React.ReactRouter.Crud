@@ -30,12 +30,12 @@ function PostView() {
 
 
     return (<>
-            <div>
-                <textarea readOnly value={post.content}></textarea>
-            </div>
-            <button type="submit" onClick={edit}>Изменить</button>
-            <button type="submit" onClick={remove}>Удалить</button>
-    </>);
+                <div>
+                    <textarea readOnly value={post.content}></textarea>
+                </div>
+                <button type="submit" onClick={edit}>Изменить</button>
+                <button type="submit" onClick={remove}>Удалить</button>
+        </>);
 }
 
 

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {AiOutlineClose} from "react-icons/ai";
-import {getSinglePost, passSinglePost} from "./helpers/helpers";
+import {getSinglePost, postSinglePost} from "./helpers/helpers";
 
 
 function PostEdition() {
@@ -23,7 +23,7 @@ function PostEdition() {
 
     const save = (e) => {
         e.preventDefault();
-        passSinglePost(0, post.content, navigate);
+        postSinglePost(0, post.content, navigate);
     };
 
 

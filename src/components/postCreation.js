@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {AiOutlineClose} from "react-icons/ai";
-import {passSinglePost} from "./helpers/helpers";
+import {postSinglePost} from "./helpers/helpers";
 
 
 function PostCreation() {
@@ -17,7 +17,7 @@ function PostCreation() {
 
     const publish = (e) => {
         e.preventDefault();
-        passSinglePost(0, form.content, navigate);
+        postSinglePost(0, form.content, navigate);
     };
 
 

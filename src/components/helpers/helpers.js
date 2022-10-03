@@ -14,7 +14,7 @@ export const getSinglePost = (postId, dataSetter) => {
 }
 
 
-export const passSinglePost = (postId, content, navigate) => {
+export const postSinglePost = (postId, content, navigate) => {
     fetch('http://localhost:7777/posts', 
     {
         method: 'POST',
