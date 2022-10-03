@@ -1,25 +1,16 @@
 import {useState, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+import {getSinglePost} from "./helpers/helpers";
 
 
 function PostView() {
     const navigate = useNavigate();
-    let {postId} = useParams();
+    let { postId } = useParams();
     const [post, setPost] = useState({});
 
 
     useEffect(() => {
-        fetch('http://localhost:7777/posts')
-        .then((response) => {
-            return response.json();
-        })
-        .catch(() => {
-            console.error("Can not dowload data");
-        })
-        .then((data) => {
-            let post = data.find(x => x.id == postId);
-            setPost(post);
-        });
+        getSinglePost(postId, setPost);
     }, []);
 
 

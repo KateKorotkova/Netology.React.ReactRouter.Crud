@@ -34,7 +34,7 @@ function PostsList() {
                         return <Post key={x.id} postInfo={x}/>;
                     })
                 }
-    </>);
+        </>);
 }
 
 

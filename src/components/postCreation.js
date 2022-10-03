@@ -1,6 +1,7 @@
 import {useState} from "react";
-import {Routes, Route, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {AiOutlineClose} from "react-icons/ai";
+import {passSinglePost} from "./helpers/helpers";
 
 
 function PostCreation() {
@@ -16,22 +17,7 @@ function PostCreation() {
 
     const publish = (e) => {
         e.preventDefault();
-        console.log('form', form);
-        fetch('http://localhost:7777/posts', 
-        {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "id": 0,
-                "content" : form.content
-            })
-        })
-        .then(() =>{
-            return navigate("/");
-        });
+        passSinglePost(0, form.content, navigate);
     };
 
 

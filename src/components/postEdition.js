@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {AiOutlineClose} from "react-icons/ai";
+import {getSinglePost, passSinglePost} from "./helpers/helpers";
 
 
 function PostEdition() {
@@ -16,39 +17,13 @@ function PostEdition() {
 
 
     useEffect(() => {
-        fetch('http://localhost:7777/posts')
-        .then((response) => {
-            return response.json();
-        })
-        .catch(() => {
-            console.error("Can not dowload data");
-        })
-        .then((data) => {
-            let post = data.find(x => x.id == postId);
-            setPost(post);
-        });
+        getSinglePost(postId, setPost);
     }, []);
 
 
     const save = (e) => {
         e.preventDefault();
-        console.log('form', post);
-        console.log('postId', postId);
-        fetch('http://localhost:7777/posts', 
-        {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "id": postId,
-                "content": post.content
-            })
-        })
-        .then(() =>{
-            return navigate("/");
-        });
+        passSinglePost(0, post.content, navigate);
     };
 
 
